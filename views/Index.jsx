@@ -4,7 +4,7 @@ function Index(props) {
     const {flights} = props;
     return (
         <div>
-            <h1>All Flight Info</h1>
+            <h1>All Flights Info</h1>
 
             <a href='/flights/new'><h3>Add New Flight</h3></a>
 
@@ -13,7 +13,8 @@ function Index(props) {
                     <div key={flight._id}>
                     <p>airline: {flight.airline}</p>
                     <p>flight number: {flight.flightNo}</p>
-                    {/* <p>departs: {flight.departs.toString}</p> */}
+                    {/*creates new Date instance*/}
+                    <p>departs: {new Date(flight.departs).toString()}</p>
                     <hr />
                     </div>
                 )

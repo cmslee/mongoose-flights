@@ -13,7 +13,7 @@ const flightSchema = new mongoose.Schema({
     },
     departs: {
         type: Date,
-        default: Date.now
+        default: () => Date.now() + 24*60*60*1000
     },
 })
 
