@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 
 //*DATA
-
+const Flight = require('./models/Flight');
 
 const app = express();
 const PORT = 3000;
@@ -14,11 +14,6 @@ const connectedtoDB = require('./config/database');
 
 
 //*MIDDLEWARE
-app.use((req, res, next) => {
-    console.log(req.url)
-    next()
-});
-
 app.use(express.urlencoded({extended: false}));
 
 //*ROUTES
@@ -33,7 +28,10 @@ app.get('/', (req, res) => {
 
 //index
 app.get('/flights', (req, res) => {
-    res.render('Index')
+    // res.render('Index')
+    Flight.find({}, (error, allFlights) => {
+        res.render('Index', {flights: allFlights})
+    })
 })
 
 //post

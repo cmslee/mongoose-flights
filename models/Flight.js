@@ -13,8 +13,8 @@ const flightSchema = new mongoose.Schema({
     },
     departs: {
         type: Date,
-        default: Date.now + 365 Days
-    }
+        default: Date.now
+    },
 })
 
 //*Model
